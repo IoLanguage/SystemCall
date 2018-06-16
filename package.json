@@ -1,0 +1,15 @@
+{
+  "name":         "SystemCall",
+  "version":      "0.1",
+  "description":  "A binding for \"callsystem - system() on steorids\".",
+  "author":       "",
+  "website":      "http://SystemCall-project.org/",
+  "readme":       "README.md",
+  "protos":       ["SystemCall"],
+  "dependencies": {
+    "libs":     [],
+    "headers":  [],
+    "protos":   [],
+    "packages": ["https://github.com/IoLanguage/Socket.git"]
+  }
+}
