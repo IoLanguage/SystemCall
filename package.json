@@ -3,7 +3,7 @@
   "version":      "0.1",
   "description":  "A binding for \"callsystem - system() on steorids\".",
   "author":       "",
-  "website":      "http://SystemCall-project.org/",
+  "website":      "http://iolanguage.org/",
   "readme":       "README.md",
   "protos":       ["SystemCall"],
   "dependencies": {
