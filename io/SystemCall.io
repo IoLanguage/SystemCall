@@ -37,20 +37,20 @@ SystemCall do(
 	)
 	
 	run := method(
-		runWatingOnStdout
+		runWaitingOnStdout
 	)
 	
-	runWatingOnStdout := method(
-		runWatingOnStream("stdout")
+	runWaitingOnStdout := method(
+		runWaitingOnStream("stdout")
 	)
 
-	runWatingOnStderr := method(
-		runWatingOnStream("stderr")
+	runWaitingOnStderr := method(
+		runWaitingOnStream("stderr")
 	)
 	
 	didRead := nil
 
-	runWatingOnStream := method(streamName,
+	runWaitingOnStream := method(streamName,
 	    buffer := Sequence clone
 		err := self asyncRun(command, arguments, environment)
 		if(err == -1, Exception raise("unable to run command"))
@@ -59,7 +59,7 @@ SystemCall do(
 		if(streamName == "stderr", stream := stderr)
 		readEvent setDescriptorId(stream descriptorId)
 	
-		//writeln("runWatingOnStream(", streamName, ")")
+		//writeln("runWaitingOnStream(", streamName, ")")
 		//writeln("SystemCall command: ", commandString)
 		
 		setIsRunning(true)
@@ -73,7 +73,7 @@ SystemCall do(
 //writeln("status 2:", self status)
 //writeln("status 3:", self status)
 //writeln("SystemCall loop 2--------------------------------------- status ", self status)
-			buffer appendSeq(stream readLines join("\n"))	
+			buffer appendSeq(stream readToEnd)
 			didRead
 			if(isRunning not, 
 				//writeln("not running")
